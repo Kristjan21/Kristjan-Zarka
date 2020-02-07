@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php 
+<?php
+     include("includes/database.php");
     session_start();
     include("functions/functions.php");
     if(!isset($_SESSION['user'])){

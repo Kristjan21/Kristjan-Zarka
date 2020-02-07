@@ -6,36 +6,74 @@ session_start();
     include("functions/functions.php");
 
 ?>
-    <head><title></title></head>
+    <head><title>Login</title>
+    <style>
+    .log{
+        margin:auto;
+        width:250px;
+        box-shadow:0px 8px 16px 0px rgba(0,0,0,0.9);
+        padding: 80px 40px;
+        margin-top:50px;
+        background: linear-gradient(top, #3c3c3c 0%, #222222 100%);
+        background: -webkit-linear-gradient(top,#3c3c3c 0%,#222222 100%);
+    }
+    h2{
+        margin:0 0 30px 0;
+        padding: 10px;
+        color: #e92c2a;
+        text-align:center;
+    }
+    input{
+        width:100%;
+        margin-bottom: 30px;
+    }
+    input[type=text],input[ type=password]{
+        border: none;
+        outline:none;
+        border: 2px #fff solid;
+        background: transparent;
+        border-radius: 20px;
+        box-sizing: border-box;
+        color:#fff;
+        font-size: 16px;
+        padding: 10px;
+        text-align: center;
+
+    }
+    .kristi{
+        border: none;
+        outline: none;
+        padding: 10px;
+        color: #fff;
+        font-family: Arial;
+        background:#ff267e;
+        cursor: pointer;
+        border-radius: 20px;
+          }
+
+    .kristi :hover{
+        background: black;
+        color: white;
+    }
+    
+
+    </style>
+    </head>
     <link rel="stylesheet" href="styles/style.css" media="all">
     <body class="noku">
-        <form action="" method="POST">
-            <center>
-                <table border="1" width="400" height="300">
-                    <tr>
-                        <td colspan="5" align="center">Plotesoni fushat e meposhtme per t'u regjistruar:</td>
-                    </tr>
-                    <tr><td align="right">Username:</td><td><input type="text" id="user" name="user"></td></tr>
-                    <tr><td align="right">Password:</td><td><input type="password" id="pass" name="pass"></td></tr>
-                    <tr>
-                        <td colspan="5" align="center"><input type="submit" name="login" value="Hyni"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="5" align="center"><input type="submit" name="createaccount" value="Krijo profil"></td>
-                        <?php if (isset($_POST['createaccount'])){
-                            echo"<script>window.open('createaccount.php','_self')</script>";
-                        }
-                        ?>
-                    </tr>
-                    <tr>
-                        <td colspan="5" align="center"><input type="submit" name="admin" value="Hyni si admin"></td>
-                        <?php if (isset($_POST['admin'])){
-                            echo"<script>window.open('admin_login.php','_self')</script>";
-                        }
-                        ?>
-                    </tr>
-                </table>
-            </center>  
+        <form action="" method="POST" >
+        <div class="log">
+        <h2>Login</h2>
+        <form>
+        <input  type="text" id="user" placeholder=" Username" name="user" required>
+        <input  type="password" id="pass" placeholder=" Password" name="pass" required>
+        <input class="kristi" type="submit" name="login" value="Hyni">
+        <a style="position:relative;left:35%" href="createaccount.php">Regjistrohu</a><br>
+        <a  style="position:relative;left:32%" href="admin_login.php">Hyni si Admin</a>
+
+        </form>
+        </div>
+            
         </form>
     </body></html>
     <?php 

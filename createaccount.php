@@ -1,32 +1,80 @@
 <html>
-    <head><title>Krijoni profilin</title></head>
+    <head><title>Krijoni profilin</title>
+    <style>
+    .log{
+        margin:auto;
+        width:250px;
+        box-shadow:0px 8px 16px 0px rgba(0,0,0,0.9);
+        padding: 80px 40px;
+        margin-top:50px;
+        background: linear-gradient(top, #3c3c3c 0%, #222222 100%);
+        background: -webkit-linear-gradient(top,#3c3c3c 0%,#222222 100%);
+    }
+    h2{
+        margin:0 0 30px 0;
+        padding: 10px;
+        color: #e92c2a;
+        text-align:center;
+    }
+    input{
+        width:100%;
+        margin-bottom: 30px;
+    }
+    input[type=text],input[ type=password],input[ type=number],input[ type=email]{
+        border: none;
+        outline:none;
+        border: 2px #fff solid;
+        background: transparent;
+        border-radius: 20px;
+        box-sizing: border-box;
+        color:#fff;
+        font-size: 16px;
+        padding: 10px;
+        text-align: center;
+
+    }
+    .kristi{
+        border: none;
+        outline: none;
+        padding: 10px;
+        color: #fff;
+        font-family: Arial;
+        background:#ff267e;
+        cursor: pointer;
+        border-radius: 20px;
+          }
+
+    .kristi :hover{
+        background: black;
+        color: white;
+    }
+    
+
+    </style></head>
     <link rel="stylesheet" href="styles/style.css" media="all">
     <body class="noku">
         <form action="" method="POST">
-            <center>
-                <table border="1" width="400" height="300">
-                    <tr>
-                        <td colspan="5" align="center" >Krijoni profilin tuaj:</td>
-                    </tr>
-                    <tr><td align="right">Emri:</td><td><input type="text" name="name" required></td></tr>
-                    <tr><td align="right">Username:</td><td><input type="text" name="username" required></td></tr>
-                    <tr><td align="right">Password:</td><td><input type="password" name="password" required></td></tr>
-                    <tr><td align="right">Email:</td><td><input type="email" name="email" required></td></tr>
-                    <tr><td align="right">Telefon:</td><td><input type="number" name="phone" required></td></tr>
-                    
-                    <tr>
-                        <td colspan="5" align="center"><input type="submit" name="submit" value="Regjistrohu"></td>
-                    </tr>
-                </table>
-            </center>  
+        <div class="log">
+        <h2>Regjistrohu</h2>
+        <form>
+        <input  type="text" placeholder=" Emri" name="name" required>
+        <input  type="text" placeholder=" Username" name="username" required>
+        <input  type="password"  placeholder="Password" name="password" required>
+        <input  type="email" placeholder=" Email" name="email" required>
+        <input  type="number" placeholder=" Telefon" name="phone" required>
+        
+        <input class="kristi" type="submit" name="submit" value="Regjistrohu">
+        
+
+        </form>
+        </div>
+           
         </form>
     </body>
 </html>
  <?php
  
- $con=mysqli_connect("localhost","root","")or die("not connected");
- 
- $a=mysqli_select_db($con,"ecas")or die("no db found");
+ include("includes/database.php");
 
  if(isset($_POST['submit'])){
     $username=$_POST['username'];
